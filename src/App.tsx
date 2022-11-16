@@ -51,6 +51,7 @@ function App() {
       if (key !== "Enter") return
       
       setWordToGuess(getWord());
+      setGuessedLetters([]);
       
       if (!key.match(/^[a-z]$/)) {
         return;
@@ -77,8 +78,8 @@ function App() {
     alignItems: "center"
   }}>
     <div style={{fontSize: "2rem", textAlign: "center"}}>
-      {isWinner && "Winner! - Refresh to try again"}
-      {isLoser && "Nice try loser!"}
+      {isWinner && "Winner! - Refresh or Enter to try again"}
+      {isLoser && "Nice try!"}
     </div>
     <HangmanDrawing numberOfGuesses={inCorrectLetters.length}/>
     <HangmanWord revealed={isLoser} guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
